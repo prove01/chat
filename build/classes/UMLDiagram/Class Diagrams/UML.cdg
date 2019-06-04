@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UML">
+  <ClassDiagramComponents>
+    <Class name="Accepter" package="" visibility="public" xPosition="144.0" yPosition="262.0">
+      <Fields>
+        <Field name="port" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="s" type="Server" visibility="private"/>
+        <Field name="ss" type="ServerSocket" visibility="private"/>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="rl" type="RequestLogin" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Server" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSS" returnType="ServerSocket" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Time" package="" visibility="public" xPosition="1027.0" yPosition="827.0">
+      <Fields>
+        <Field name="gc" type="GregorianCalendar" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getHour" returnType="String" visibility="public"/>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="getTimeDate" returnType="String" visibility="public"/>
+        <Method name="getMonth" returnType="int" visibility="public">
+          <Argument type="int" name="month"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClientHandler" package="" visibility="public" xPosition="560.0" yPosition="740.0">
+      <Fields>
+        <Field name="credentials" type="HashMap" visibility="private"/>
+        <Field name="path" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="path"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addUser" returnType="String" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="verifyUser" returnType="String" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="isUser" returnType="String" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Client" package="" visibility="public" xPosition="1382.0" yPosition="407.0">
+      <Fields>
+        <Field name="out" type="PrintStream" visibility="private"/>
+        <Field name="IP" type="String" visibility="private"/>
+        <Field name="port" type="int" visibility="private"/>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="app" type="boolean" visibility="private"/>
+        <Field name="connected" type="boolean" visibility="private"/>
+        <Field name="serveractive" type="boolean" visibility="private"/>
+        <Field name="t" type="TextArea" visibility="private"/>
+        <Field name="text" type="Text" visibility="private"/>
+        <Field name="chatname" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="IP"/>
+          <Argument type="int" name="port"/>
+          <Argument type="TextArea" name="t"/>
+          <Argument type="Text" name="text"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isServeractive" returnType="boolean" visibility="public"/>
+        <Method name="setServeractive" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="serveractive"/>
+        </Method>
+        <Method name="getChatname" returnType="String" visibility="public"/>
+        <Method name="closeConnection" returnType="void" visibility="public"/>
+        <Method name="sendMessage" returnType="String" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="isConnected" returnType="boolean" visibility="public"/>
+        <Method name="getOut" returnType="PrintStream" visibility="public"/>
+        <Method name="setOut" returnType="PrintStream" visibility="public">
+          <Argument type="PrintStream" name="out"/>
+        </Method>
+        <Method name="getIP" returnType="String" visibility="public"/>
+        <Method name="setIP" returnType="String" visibility="public">
+          <Argument type="String" name="IP"/>
+        </Method>
+        <Method name="getPort" returnType="int" visibility="public"/>
+        <Method name="setPort" returnType="int" visibility="public">
+          <Argument type="int" name="port"/>
+        </Method>
+        <Method name="getSocket" returnType="Socket" visibility="public"/>
+        <Method name="setSocket" returnType="Socket" visibility="public">
+          <Argument type="Socket" name="socket"/>
+        </Method>
+        <Method name="getT" returnType="TextArea" visibility="public"/>
+        <Method name="setT" returnType="TextArea" visibility="public">
+          <Argument type="TextArea" name="t"/>
+        </Method>
+        <Method name="setUsername" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Connection" package="" visibility="public" xPosition="1027.0" yPosition="241.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="protected"/>
+        <Field name="username" type="String" visibility="protected"/>
+        <Field name="fromclient" type="String" visibility="protected"/>
+        <Field name="toclient" type="String" visibility="protected"/>
+        <Field name="date" type="String" visibility="protected"/>
+        <Field name="listOfClient" type="Vector" visibility="protected" isStatic="true"/>
+        <Field name="wc" type="WriterChat" visibility="protected"/>
+        <Field name="server" type="Server" visibility="protected"/>
+        <Field name="active" type="boolean" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socket" name="socket"/>
+          <Argument type="Server" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="sendMessageToAll" returnType="String" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="getSocket" returnType="Socket" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RequestLogin" package="" visibility="public" xPosition="91.0" yPosition="530.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="s" type="Server" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="t" type="TextArea" visibility="private"/>
+        <Field name="c" type="Connection" visibility="private"/>
+        <Field name="out" type="PrintStream" visibility="private"/>
+        <Field name="in" type="InputStreamReader" visibility="private"/>
+        <Field name="inFromClient" type="BufferedReader" visibility="private"/>
+        <Field name="osw" type="OutputStreamWriter" visibility="private"/>
+        <Field name="pw" type="PrintWriter" visibility="private"/>
+        <Field name="bw" type="BufferedWriter" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socket" name="s"/>
+          <Argument type="Server" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createConnection" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="newUser" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="loadChat" returnType="String" visibility="public"/>
+        <Method name="wasConnected" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="isLogged" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Server" package="" visibility="public" xPosition="544.0" yPosition="9.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="protected"/>
+        <Field name="listOfConnection" type="Vector" visibility="public"/>
+        <Field name="ch" type="ClientHandler" visibility="protected"/>
+        <Field name="path" type="String" visibility="public"/>
+        <Field name="admin" type="String" visibility="public"/>
+        <Field name="currentMode" type="String" visibility="public"/>
+        <Field name="username" type="String" visibility="public"/>
+        <Field name="chatname" type="String" visibility="public"/>
+        <Field name="t" type="TextArea" visibility="public"/>
+        <Field name="t1" type="TextArea" visibility="public"/>
+        <Field name="l" type="ListView" visibility="protected"/>
+        <Field name="accepter" type="Accepter" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="TextArea" name="t"/>
+          <Argument type="TextArea" name="t1"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="TextArea" name="t"/>
+          <Argument type="TextArea" name="t1"/>
+          <Argument type="LIstView" name="l"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createNewChat" returnType="String" visibility="public">
+          <Argument type="String" name="chatname"/>
+        </Method>
+        <Method name="restoreChat" returnType="void" visibility="public"/>
+        <Method name="setAccepter" returnType="Accepter" visibility="public">
+          <Argument type="Accepter" name="a"/>
+        </Method>
+        <Method name="closeAllConnection" returnType="void" visibility="public"/>
+        <Method name="printChat" returnType="void" visibility="public"/>
+        <Method name="verifyAdmin" returnType="String" visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getAdmin" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WriterChat" package="" visibility="public" xPosition="1406.0" yPosition="156.0">
+      <Fields>
+        <Field name="path" type="String" visibility="private"/>
+        <Field name="pw" type="PrintWriter" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="path"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="write" returnType="String" visibility="public">
+          <Argument type="String" name="s"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="use" source="Connection" target="Time" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="." source="RequestLogin" target="Connection" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="." source="Accepter" target="Server" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="." source="Server" target="Connection" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="." source="Client" target="Accepter" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="." source="Accepter" target="RequestLogin" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="." source="Server" target="ClientHandler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="use" source="Client" target="Time" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="." source="Connection" target="WriterChat" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

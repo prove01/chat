@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="616.0">
+         <image>
+            <Image url="@mro2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="44.0" prefHeight="68.0" prefWidth="600.0" text="LOGIN AS:">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="server" alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="147.0" mnemonicParsing="false" onAction="#ServerScene" text="Server">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="client" layoutX="358.0" layoutY="147.0" mnemonicParsing="false" onAction="#ClientScene" prefHeight="77.0" prefWidth="147.0" text="Client">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="121.0" fitWidth="121.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="121.0" layoutX="371.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@client.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="112.0" layoutX="130.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@server.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
